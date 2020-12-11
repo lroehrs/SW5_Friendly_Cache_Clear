@@ -18,7 +18,7 @@ function show_help {
   echo -e ${CPH}"+-----------------+\n"${NC}
   echo -e "Usage: $0 (for Shopware 5) [options [parameter]]\n"
   echo -e "Options:"
-  echo -e "-bw|--rsync-bwlimit [KB/s], Set rsync Bandwith Limit in KBytes per second. See rsync Manuel. Default: 50000"
+  echo -e "-bw|--rsync-bwlimit [KB/s], Set rsync Bandwith Limit in KBytes per second. See rsync Manuel. Default: 20000"
   echo -e "-h |--help, Print what you see"
   exit 0
 }
@@ -95,7 +95,7 @@ php ../../bin/console sw:generate:attributes > /dev/null ; x_re
 
 
 if [[ -z "${rsync_bw_value}" ]]; then
-  rsync_bw="--bwlimit=50000"
+  rsync_bw="--bwlimit=20000"
 else
   rsync_bw="--bwlimit=${rsync_bw_value}"
 fi
